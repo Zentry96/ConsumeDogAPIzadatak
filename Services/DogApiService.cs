@@ -1,5 +1,6 @@
 ﻿namespace ConsumeDogAPI.Services;
 
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -48,11 +49,11 @@ public class DogApiService
     public List<string> SortAlphabeticallyAndByLength(List<string> subBreeds)
     {
         return subBreeds
-            .OrderBy(name => name)
-            .ThenBy(name => name.Length)
+            .OrderBy(breed => breed[0])  
+            .ThenBy(breed => breed.Length)  
             .ToList();
-    }
 
+    }
     private class DogApiResponse
     {
         public List<string> message { get; set; }
