@@ -15,6 +15,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var terrierSubBreeds = await _dogApiService.GetTerrierSubBreed();
-        return View(terrierSubBreeds);
+        var sortedSubBreeds = _dogApiService.SortByLengthBubbleSort(terrierSubBreeds);
+        return View(sortedSubBreeds);
     }
 }
