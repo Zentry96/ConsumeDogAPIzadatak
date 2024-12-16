@@ -22,12 +22,12 @@ public class DogApiService
         var jsonResponse = await response.Content.ReadAsStringAsync();
         var data = JsonSerializer.Deserialize<DogApiResponse>(jsonResponse);
 
-        return data?.subBreed ?? new List<string>();
+        return data?.message ?? new List<string>();
     }
 
     private class DogApiResponse
     {
-        public List<string> subBreed { get; set; }
+        public List<string> message { get; set; }
         public string Status { get; set; }
     }
 }
