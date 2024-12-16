@@ -25,6 +25,7 @@ public class DogApiService
         return data?.message ?? new List<string>();
     }
 
+    /*
     public List<string> SortByLengthBubbleSort(List<string> subBreeds)
     {
         for (int i = 0; i < subBreeds.Count - 1; i++)
@@ -40,6 +41,16 @@ public class DogApiService
             }
         }
         return subBreeds;
+    }
+
+    */
+
+    public List<string> SortAlphabeticallyAndByLength(List<string> subBreeds)
+    {
+        return subBreeds
+            .OrderBy(name => name)
+            .ThenBy(name => name.Length)
+            .ToList();
     }
 
     private class DogApiResponse
